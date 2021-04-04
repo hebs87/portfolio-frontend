@@ -1,5 +1,6 @@
 import Profile from '../components/Profile/Profile';
 import About from '../components/About/About';
+import Skills from '../components/Skills/Skills';
 
 const HomePage = () => {
   return (
@@ -7,6 +8,7 @@ const HomePage = () => {
       <div>
         <Profile/>
         <About/>
+        <Skills/>
       </div>
     </div>
   );
