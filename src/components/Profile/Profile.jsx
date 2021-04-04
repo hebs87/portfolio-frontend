@@ -18,7 +18,7 @@ const Profile = () => {
           <div className="container">
             <div className="content-center">
               <div className="cc-profile-image">
-                <a onClick={scrollIntoView('top')}><
+                <a href="/#" onClick={scrollIntoView('top')}><
                   img src={profilePic} alt="Profile"/>
                 </a>
               </div>

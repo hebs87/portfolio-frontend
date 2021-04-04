@@ -8,6 +8,7 @@ const ProfileButton = ({classes, href, onClick, text}) => {
         href={href ? href : "/#"}
         onClick={onClick ? onClick : null}
         target={href ? "_blank" : null}
+        rel="noreferrer"
       >
         {text}
       </a>
