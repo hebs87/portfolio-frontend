@@ -4,7 +4,7 @@ export const NAV_LINKS = [
     text: 'About'
   },
   {
-    id: 'skill',
+    id: 'skills',
     text: 'Skills'
   },
   {
@@ -14,6 +14,10 @@ export const NAV_LINKS = [
   {
     id: 'experience',
     text: 'Experience'
+  },
+  {
+    id: 'education',
+    text: 'Education'
   },
   {
     id: 'contact',
