@@ -24,3 +24,21 @@ export const NAV_LINKS = [
     text: 'Contact'
   },
 ];
+
+export const SOCIAL_LINKS = [
+  {
+    link: 'https://github.com/hebs87',
+    title: 'Follow me on GitHub',
+    iconClass: 'fa fa-github'
+  },
+  {
+    link: 'https://www.facebook.com/hebs87',
+    title: 'Follow me on Facebook',
+    iconClass: 'fa fa-facebook'
+  },
+  {
+    link: 'https://www.instagram.com/hebs87',
+    title: 'Follow me on Instagram',
+    iconClass: 'fa fa-instagram'
+  }
+];
