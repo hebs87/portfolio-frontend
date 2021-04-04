@@ -18,15 +18,18 @@ const Profile = () => {
           <div className="container">
             <div className="content-center">
               <div className="cc-profile-image">
-                <a href="/#" onClick={scrollIntoView('top')}><
-                  img src={profilePic} alt="Profile"/>
+                <a
+                  href={() => {}}
+                  onClick={() => scrollIntoView('top')}
+                >
+                  <img src={profilePic} alt="Profile"/>
                 </a>
               </div>
               <div className="h2 title">Sunny Hebbar</div>
               <p className="category text-white">Full Stack Web Developer</p>
               <ProfileButton
                 classes="smooth-scroll mr-2"
-                onClick={scrollIntoView('contact')}
+                onClick={() => scrollIntoView('contact')}
                 text={"Hire Me"}
               />
               <ProfileButton

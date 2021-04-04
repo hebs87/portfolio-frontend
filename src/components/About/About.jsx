@@ -1,5 +1,6 @@
 import SectionContainer from '../Container/SectionContainer';
 import SectionCard from '../Cards/SectionCard';
+import {scrollIntoView} from '../../utils/helpers';
 
 const About = () => {
   return (
@@ -14,7 +15,13 @@ const About = () => {
               <p>
                 Need a website or application, or interested in collaborating on a cool project?
                 {' '}
-                <a className="nav-link smooth-scroll about-link" href="/#">Contact</a>
+                <a
+                  className="nav-link smooth-scroll about-link"
+                  href={() => false}
+                  onClick={() => scrollIntoView('contact')}
+                >
+                  Contact
+                </a>
                 {' '}
                 me!
               </p>

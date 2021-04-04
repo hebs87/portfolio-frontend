@@ -10,7 +10,12 @@ const Header = () => {
           <nav className="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
             <div className="container">
               <div className="navbar-translate">
-                <a className="navbar-brand" href="/#" onClick={scrollIntoView('top')} rel="tooltip">
+                <a
+                  className="navbar-brand"
+                  href={() => false}
+                  onClick={() => scrollIntoView('top')}
+                  rel="tooltip"
+                >
                   Sunny Hebbar | CV &amp; Portfolio
                 </a>
                 <button className="navbar-toggler navbar-toggler" type="button" data-toggle="collapse"
