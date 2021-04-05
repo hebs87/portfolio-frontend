@@ -27,16 +27,19 @@ export const NAV_LINKS = [
 
 export const SOCIAL_LINKS = [
   {
+    name: 'github',
     link: 'https://github.com/hebs87',
     title: 'Follow me on GitHub',
     iconClass: 'fa fa-github'
   },
   {
+    name: 'facebook',
     link: 'https://www.facebook.com/hebs87',
     title: 'Follow me on Facebook',
     iconClass: 'fa fa-facebook'
   },
   {
+    name: 'instagram',
     link: 'https://www.instagram.com/hebs87',
     title: 'Follow me on Instagram',
     iconClass: 'fa fa-instagram'
