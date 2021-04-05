@@ -3,6 +3,8 @@ import CustomInput from '../CustomInput/CustomInput';
 import CustomTextArea from '../CustomTextArea/CustomTextArea';
 import FlashMessage from '../../FlashMessage/FlashMessage';
 
+import API from '../../../utils/API';
+
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [nameError, setNameError] = useState('');
@@ -12,24 +14,29 @@ const ContactForm = () => {
   const [emailError, setEmailError] = useState('');
   const [message, setMessage] = useState('');
   const [messageError, setMessageError] = useState('');
+  const [formError, setFormError] = useState('');
   const [showFlashMessage, setShowFlashMessage] = useState(false);
 
   const onInputChange = (event) => {
     switch (event.target.name) {
       case 'name':
         setNameError('');
+        setFormError('');
         setName(event.target.value);
         break;
       case 'subject':
         setSubjectError('');
+        setFormError('');
         setSubject(event.target.value);
         break;
       case 'email':
         setEmailError('');
+        setFormError('');
         setEmail(event.target.value);
         break;
       case 'message':
         setMessageError('');
+        setFormError('');
         setMessage(event.target.value);
         break;
       default:
@@ -63,10 +70,24 @@ const ContactForm = () => {
     return true;
   };
 
-  const submitForm = () => {
-    // TODO: Logic to post form data to API
-    console.log('form submitted');
-    setShowFlashMessage(true);
+  const submitForm = async () => {
+    try {
+      const data = {
+        name,
+        subject,
+        email,
+        message
+      };
+      await API.post('/projects/messages/', data);
+      setName('');
+      setSubject('');
+      setEmail('');
+      setMessage('');
+      setFormError('');
+      setShowFlashMessage(true);
+    } catch (err) {
+      setFormError(`Error: ${err}`);
+    }
   }
 
   const handleSubmit = (event) => {
@@ -123,6 +144,17 @@ const ContactForm = () => {
             onChange={(event) => onInputChange(event)}
             error={messageError}
           />
+          <span
+            style={{
+              position: 'absolute',
+              color: 'red',
+              fontSize: '0.7rem',
+              left: '2.2rem',
+              bottom: 70
+            }}
+          >
+            {formError}
+          </span>
           <div className="row">
             <div className="col">
               <button
