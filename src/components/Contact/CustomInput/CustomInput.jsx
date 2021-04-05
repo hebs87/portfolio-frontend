@@ -1,9 +1,9 @@
 import InputContainer from '../InputContainer/InputContainer';
 
-const CustomInput = ({iconClass, type, name, placeholder, value, required, onChange}) => {
+const CustomInput = ({iconClass, type, name, placeholder, value, required, onChange, error}) => {
   return (
     <InputContainer>
-      <div className="input-group">
+      <div className="input-group" style={{position: "relative"}}>
         <span className="input-group-addon">
           <i className={iconClass}/>
         </span>
@@ -17,6 +17,17 @@ const CustomInput = ({iconClass, type, name, placeholder, value, required, onCha
           onChange={onChange}
         />
       </div>
+      <span
+        style={{
+          position: 'absolute',
+          color: 'red',
+          top: 40,
+          fontSize: '0.7rem',
+          left: '2rem'
+        }}
+      >
+        {error}
+      </span>
     </InputContainer>
   );
 }

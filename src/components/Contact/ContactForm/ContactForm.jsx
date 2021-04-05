@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import CustomInput from '../CustomInput/CustomInput';
 import CustomTextArea from '../CustomTextArea/CustomTextArea';
+import FlashMessage from '../../FlashMessage/FlashMessage';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -11,6 +12,7 @@ const ContactForm = () => {
   const [emailError, setEmailError] = useState('');
   const [message, setMessage] = useState('');
   const [messageError, setMessageError] = useState('');
+  const [showFlashMessage, setShowFlashMessage] = useState(false);
 
   const onInputChange = (event) => {
     switch (event.target.name) {
@@ -35,18 +37,22 @@ const ContactForm = () => {
     }
   };
 
+  const isEmailValid = (email) => {
+    // Check if email is a valid email
+    const pattern = '^(([^<>()\\[\\]\\.,;:\\s@\\"]+(\\.[^<>()\\[\\]\\.,;:\\s@\\"]+)*)|(\\".+\\"))@(([^<>()[\\]\\.,;:\\s@\\"]+\\.)+[^<>()[\\]\\.,;:\\s@\\"]{2,})$';
+    return email.match(pattern);
+  };
+
   const formIsValid = () => {
-    // TODO: logic to check for errors and set error states
     if (!name) {
-      setNameError('Please enter a name');
+      setNameError('Please enter your name');
       return false;
     }
     if (!subject) {
       setSubjectError('Please enter a subject');
       return false;
     }
-    // TODO: Validate email with Regex
-    if (!email) {
+    if (!email || (email && !isEmailValid(email))) {
       setEmailError('Please enter a valid email');
       return false;
     }
@@ -60,6 +66,7 @@ const ContactForm = () => {
   const submitForm = () => {
     // TODO: Logic to post form data to API
     console.log('form submitted');
+    setShowFlashMessage(true);
   }
 
   const handleSubmit = (event) => {
@@ -71,6 +78,10 @@ const ContactForm = () => {
 
   return (
     <div className="col-md-6">
+      {
+        showFlashMessage &&
+        <FlashMessage setShowFlashMessage={setShowFlashMessage} />
+      }
       <div className="card-body">
         <form>
           <div className="p pb-3"><strong>Feel free to contact me </strong></div>
@@ -82,6 +93,7 @@ const ContactForm = () => {
             value={name}
             required
             onChange={(event) => onInputChange(event)}
+            error={nameError}
           />
           <CustomInput
             iconClass={"fa fa-file-text"}
@@ -91,6 +103,7 @@ const ContactForm = () => {
             value={subject}
             required
             onChange={(event) => onInputChange(event)}
+            error={subjectError}
           />
           <CustomInput
             iconClass={"fa fa-envelope"}
@@ -100,6 +113,7 @@ const ContactForm = () => {
             value={email}
             required
             onChange={(event) => onInputChange(event)}
+            error={emailError}
           />
           <CustomTextArea
             name={"message"}
@@ -107,6 +121,7 @@ const ContactForm = () => {
             value={message}
             required
             onChange={(event) => onInputChange(event)}
+            error={messageError}
           />
           <div className="row">
             <div className="col">
