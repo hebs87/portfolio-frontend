@@ -11,31 +11,32 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // getData is only used in useEffect, so it is declared here to resolve console warning
+    const getData = async () => {
+      try {
+        const profile = await callApi('/personal/details');
+        const skills = await callApi('/personal/skills');
+        const projects = await callApi('/projects/details');
+        const experience = await callApi('/personal/experience');
+        const education = await callApi('/personal/education');
+        const details = {
+          profile: profile[0],
+          skills,
+          projects,
+          experience,
+          education
+        }
+        setDetails(details);
+        setLoading(false);
+      } catch (err) {
+        setLoading(false);
+        // TODO: Forward to 404 erorr page once created
+        console.log(err);
+      }
+    };
+    // Call function as soon as it is declared
     getData();
   }, []);
-
-  const getData = async () => {
-    try {
-      const profile = await callApi('/personal/details');
-      const skills = await callApi('/personal/skills');
-      const projects = await callApi('/projects/details');
-      const experience = await callApi('/personal/experience');
-      const education = await callApi('/personal/education');
-      const details = {
-        profile: profile[0],
-        skills,
-        projects,
-        experience,
-        education
-      }
-      setDetails(details);
-      setLoading(false);
-    } catch (err) {
-      setLoading(false);
-      // TODO: Forward to 404 erorr page once created
-      console.log(err);
-    }
-  };
 
   const callApi = async (url) => {
     const response = await API.get(url);
@@ -65,6 +66,6 @@ const App = () => {
       }
     </>
   );
-}
+};
 
 export default App;
