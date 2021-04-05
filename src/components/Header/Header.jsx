@@ -1,13 +1,17 @@
 import HeaderLink from "./HeaderLink/HeaderLink";
 import {NAV_LINKS} from '../../utils/variables';
 import {scrollIntoView} from '../../utils/helpers';
+import {useScrollHandler} from '../../hooks/ScrollHook';
 
 const Header = ({name}) => {
+  const scroll = useScrollHandler(75);
   return (
     <>
       <header>
         <div className="profile-page sidebar-collapse">
-          <nav className="navbar navbar-expand-lg fixed-top bg-primary" color-on-scroll="400">
+          <nav
+            className={`navbar navbar-expand-lg fixed-top bg-primary ${scroll && 'navbar-transparent'}`}
+          >
             <div className="container">
               <div className="navbar-translate">
                 <a
