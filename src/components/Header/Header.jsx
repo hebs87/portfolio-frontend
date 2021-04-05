@@ -5,6 +5,21 @@ import {useScrollHandler} from '../../hooks/ScrollHook';
 
 const Header = ({name}) => {
   const scroll = useScrollHandler(75);
+
+  const handleNavLinkClick = (id) => {
+    scrollIntoView(id);
+    collapseMobileNav();
+  };
+
+  const collapseMobileNav = () => {
+    // Close mobile side nav menu if open
+    const openedMobileMenu = document.querySelector('.navbar-collapse.show');
+    if (openedMobileMenu) {
+      const navToggler = document.querySelector('.navbar-toggler');
+      navToggler.click();
+    }
+  };
+
   return (
     <>
       <header>
@@ -22,22 +37,31 @@ const Header = ({name}) => {
                 >
                   {name} | CV &amp; Portfolio
                 </a>
-                <button className="navbar-toggler navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navigation" aria-controls="navigation" aria-expanded="false"
-                        aria-label="Toggle navigation">
+                <button
+                  className="navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navigation"
+                  aria-controls="navigation"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
                   <span className="navbar-toggler-bar bar1"/>
                   <span className="navbar-toggler-bar bar2"/>
                   <span className="navbar-toggler-bar bar3"/>
                 </button>
               </div>
-              <div className="collapse navbar-collapse justify-content-end" id="navigation">
+              <div
+                id="navigation"
+                className="collapse navbar-collapse justify-content-end"
+              >
                 <ul className="navbar-nav">
                   {
                     NAV_LINKS && NAV_LINKS.map(({id, text}) => (
                       <li key={id} className="nav-item">
                         <HeaderLink
-                          id={id}
                           text={text}
+                          onClick={() => handleNavLinkClick(id)}
                         />
                       </li>
                     ))

@@ -1,12 +1,10 @@
-import {scrollIntoView} from '../../../utils/helpers';
-
-const HeaderLink = ({id, text}) => {
+const HeaderLink = ({text, onClick}) => {
   return (
     <>
       <a
         href={() => false}
         className="nav-link smooth-scroll"
-        onClick={() => scrollIntoView(id)}
+        onClick={onClick}
       >
         {text}
       </a>
