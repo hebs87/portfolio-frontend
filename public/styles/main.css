@@ -7151,9 +7151,17 @@ Created using IcoMoon - icomoon.io
 }
 
 /* Experience Style */
-.cc-experience .cc-experience-header {
-  padding-top: 60px;
+.cc-experience .cc-experience-header,
+.cc-education .cc-education-header {
+  padding-top: 0;
   padding-right: 0;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
   text-align: center;
   color: #fff;
   text-transform: uppercase;
@@ -7162,13 +7170,6 @@ Created using IcoMoon - icomoon.io
 /* Education Style */
 .cc-education .h5 {
   margin-bottom: 0;
-}
-
-.cc-education .cc-education-header {
-  padding-top: 60px;
-  padding-right: 0;
-  text-align: center;
-  color: #fff;
 }
 
 /* References Style */
@@ -7227,6 +7228,11 @@ Created using IcoMoon - icomoon.io
 }
 
 @media (max-width: 767px) {
+  .cc-experience .cc-experience-header,
+  .cc-education .cc-education-header {
+    padding-left: 0;
+  }
+
   .cc-contact-information .cc-contact {
     padding: 30px 0px 30px 0px;
   }
