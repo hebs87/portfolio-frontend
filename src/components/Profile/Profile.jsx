@@ -7,7 +7,7 @@ import profilePic from '../../assets/images/sunny.jpg';
 import  CV from '../../assets/files/sunny-hebbar-resume.pdf';
 import {SOCIAL_LINKS} from '../../utils/variables';
 
-const Profile = () => {
+const Profile = ({name, title}) => {
   return (
     <div className="profile-page">
       <div className="wrapper">
@@ -25,8 +25,8 @@ const Profile = () => {
                   <img src={profilePic} alt="Profile"/>
                 </a>
               </div>
-              <div className="h2 title">Sunny Hebbar</div>
-              <p className="category text-white">Full Stack Web Developer</p>
+              <div className="h2 title">{name}</div>
+              <p className="category text-white">{title}</p>
               <ProfileButton
                 classes="smooth-scroll mr-2"
                 onClick={() => scrollIntoView('contact')}

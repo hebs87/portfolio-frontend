@@ -4,7 +4,7 @@ import ContactForm from "./ContactForm/ContactForm";
 
 import StaticMap from '../../assets/images/staticmap.png';
 
-const Contact = () => {
+const Contact = ({address, phone, email}) => {
   return (
     <ContactContainer
       id={'contact'}
@@ -20,11 +20,11 @@ const Contact = () => {
                   <div className="col-md-6">
                     <div className="card-body">
                       <p className="mb-0"><strong>Address </strong></p>
-                      <p className="pb-2">Liverpool, UK. L10</p>
+                      <p className="pb-2">{address}</p>
                       <p className="mb-0"><strong>Phone</strong></p>
-                      <p className="pb-2">(+44) 07733 235 188</p>
+                      <p className="pb-2">{phone}</p>
                       <p className="mb-0"><strong>Email</strong></p>
-                      <p>sunnyhebbar@hotmail.co.uk</p>
+                      <p>{email}</p>
                     </div>
                   </div>
                 </div>

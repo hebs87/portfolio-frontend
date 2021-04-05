@@ -7,7 +7,7 @@ const Header = ({name}) => {
     <>
       <header>
         <div className="profile-page sidebar-collapse">
-          <nav className="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
+          <nav className="navbar navbar-expand-lg fixed-top bg-primary" color-on-scroll="400">
             <div className="container">
               <div className="navbar-translate">
                 <a
