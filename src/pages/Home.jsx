@@ -4,6 +4,7 @@ import Skills from '../components/Skills/Skills';
 import Portfolio from '../components/Portfolio/Portfolio';
 import Experience from '../components/Experience/Experience';
 import Education from '../components/Education/Education';
+import Contact from '../components/Contact/Contact';
 
 const HomePage = () => {
   return (
@@ -15,6 +16,7 @@ const HomePage = () => {
         <Portfolio/>
         <Experience/>
         <Education/>
+        <Contact/>
       </div>
     </div>
   );
