@@ -2,7 +2,7 @@ import {useState} from 'react';
 import SocialLink from './SocialLinks/SocialLink';
 import {SOCIAL_LINKS} from '../../utils/variables';
 
-const Footer = () => {
+const Footer = ({name}) => {
   const [year] = useState(new Date().getFullYear());
 
   return (
@@ -19,7 +19,7 @@ const Footer = () => {
           ))
         }
       </div>
-      <div className="h4 title text-center">Sunny Hebbar</div>
+      <div className="h4 title text-center">{name}</div>
       <div className="text-center text-muted">
         <p>
           &copy;{' '}

@@ -2,7 +2,7 @@ import HeaderLink from "./HeaderLink/HeaderLink";
 import {NAV_LINKS} from '../../utils/variables';
 import {scrollIntoView} from '../../utils/helpers';
 
-const Header = () => {
+const Header = ({name}) => {
   return (
     <>
       <header>
@@ -16,7 +16,7 @@ const Header = () => {
                   onClick={() => scrollIntoView('top')}
                   rel="tooltip"
                 >
-                  Sunny Hebbar | CV &amp; Portfolio
+                  {name} | CV &amp; Portfolio
                 </a>
                 <button className="navbar-toggler navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navigation" aria-controls="navigation" aria-expanded="false"

@@ -42,7 +42,6 @@ const App = () => {
     return data;
   }
 
-  console.log(loading);
   return (
     <>
       {
@@ -52,9 +51,15 @@ const App = () => {
       {
         !loading && details &&
           <>
-            <Header/>
-            <HomePage/>
-            <Footer/>
+            <Header
+              name={details.profile.name}
+            />
+            <HomePage
+              details={details}
+            />
+            <Footer
+              name={details.profile.name}
+            />
           </>
       }
     </>
