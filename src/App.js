@@ -21,6 +21,7 @@ const App = () => {
         const education = await callApi('/personal/education');
         const details = {
           profile: profile[0],
+          social: profile[0].social_media_details,
           skills,
           projects,
           experience,
@@ -61,6 +62,7 @@ const App = () => {
             />
             <Footer
               name={details.profile.name}
+              social={details.social}
             />
           </>
       }

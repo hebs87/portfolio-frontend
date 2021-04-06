@@ -1,15 +1,14 @@
 import {useState} from 'react';
 import SocialLink from './SocialLinks/SocialLink';
-import {SOCIAL_LINKS} from '../../utils/variables';
 
-const Footer = ({name}) => {
+const Footer = ({name, social}) => {
   const [year] = useState(new Date().getFullYear());
 
   return (
     <footer className="footer">
       <div className="container text-center">
         {
-          SOCIAL_LINKS && SOCIAL_LINKS.map(({name, link, iconClass}) => (
+          social && social.map(({name, link, iconClass}) => (
             <SocialLink
               key={name}
               name={name}

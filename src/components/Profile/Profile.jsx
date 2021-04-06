@@ -4,10 +4,8 @@ import {scrollIntoView} from '../../utils/helpers';
 
 import bgImage from '../../assets/images/cc-bg-1.jpg';
 import profilePic from '../../assets/images/sunny.jpg';
-import  CV from '../../assets/files/sunny-hebbar-resume.pdf';
-import {SOCIAL_LINKS} from '../../utils/variables';
 
-const Profile = ({name, title}) => {
+const Profile = ({name, title, cv, social}) => {
   return (
     <div className="profile-page">
       <div className="wrapper">
@@ -33,7 +31,7 @@ const Profile = ({name, title}) => {
                 text={"Hire Me"}
               />
               <ProfileButton
-                href={CV}
+                href={cv}
                 text={"See CV"}
               />
             </div>
@@ -42,7 +40,7 @@ const Profile = ({name, title}) => {
             <div className="container">
               <div className="button-container">
                 {
-                  SOCIAL_LINKS && SOCIAL_LINKS.map(({link, title, iconClass}) => (
+                  social && social.map(({link, title, iconClass}) => (
                     <SocialLink
                       key={link}
                       link={link}

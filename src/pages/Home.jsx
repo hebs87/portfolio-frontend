@@ -6,13 +6,15 @@ import Experience from '../components/Experience/Experience';
 import Education from '../components/Education/Education';
 import Contact from '../components/Contact/Contact';
 
-const HomePage = ({details: {profile, skills, projects, experience, education}}) => {
+const HomePage = ({details: {profile, social, skills, projects, experience, education}}) => {
   return (
     <div className="page-content">
       <div>
         <Profile
           name={profile.name}
           title={profile.job_title}
+          cv={profile.cv}
+          social={social}
         />
         <About
           profile={profile}
